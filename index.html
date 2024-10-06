@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function generateRandomInteger(min, max) {
+            let casualNumber = Math.random()
+            casualNumber = casualNumber * max
+            casualNumber = parseInt(casualNumber)
+            return casualNumber
+        }
+
+        function sanitize(number){
+            return number.toLowerCase().trim()
+        }
+
+        let contatore=0
+        let casualNumber = generateRandomInteger(1,100)
+        let domanda=0
+        let min=0
+        let max=100
+        let number=0
+        
+        let importNumber=generateRandomInteger()
+
+        while(contatore<5){
+            domanda=prompt("inserisci un numero da 1 a 100")
+            console.log(number)
+
+        while(number <= 0 || number > 100 || isNaN(number) || number===null ){
+            console.log("ERRORE,inserisci il numero")
+            console.log("indovina il numero casuale tra 1 e 100")
+
+        }
+        number=sanitize(number)
+        }
+
+        if(number === casualNumber){
+            console.log("Complimenti,Hai indovinato")
+            contatore=5 
+
+        }else{
+            if (number > casualNumber){
+                console.log("Numero troppo grande")
+                contatore+=1
+            }else{
+                console.log("Numero troppo piccolo")
+                contatore+=1
+            }
+        }
+    </script>
+</body>
+</html>
