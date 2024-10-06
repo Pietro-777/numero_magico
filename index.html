@@ -15,7 +15,7 @@
         }
 
         function sanitize(number){
-            return number.toLowerCase().trim()
+            return parseInt(number) //parseInt per diventare i numeri interi 
         }
 
         let contatore=0
@@ -25,19 +25,16 @@
         let max=100
         let number=0
         
-        let importNumber=generateRandomInteger()
-
         while(contatore<5){
-            domanda=prompt("inserisci un numero da 1 a 100")
-            console.log(number)
+            domanda=prompt("indovina il numero casuale tra 1 e 100")
+            number = sanitize(domanda)
 
         while(number <= 0 || number > 100 || isNaN(number) || number===null ){
-            console.log("ERRORE,inserisci il numero")
-            console.log("indovina il numero casuale tra 1 e 100")
-
+            console.log("ERRORE,inserisci un numero tra 1 e 100") 
+            number = prompt("Inserisci un numero tra 1 e 100")  
         }
-        number=sanitize(number)
-        }
+        number = sanitize(domanda)
+        console.log(number)
 
         if(number === casualNumber){
             console.log("Complimenti,Hai indovinato")
@@ -52,6 +49,10 @@
                 contatore+=1
             }
         }
+        if (contatore === 5 && number !== casualNumber) {
+        console.log("Hai esaurito i tentativi. Il numero corretto era " + casualNumber)
+        }
+    }
     </script>
 </body>
 </html>
